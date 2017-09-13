@@ -26,7 +26,7 @@
       data: $(this).serialize(),
       dataType:"json",
       beforeSend: function() {
-        $('.ajax').html("<img class='loader' src='"+appurl+"/static/loader.gif' style='margin:5px 50%;border:0;' />");            
+        $('.ajax').html("<img class='loader' src='"+appurl+"/loader.gif' style='margin:5px 50%;border:0;' />");            
       },
       complete: function() {        
         $('.ajax').find('.loader').fadeOut("fast");
@@ -56,7 +56,7 @@
           url.val(html.short);  
           url.select();
           $('#copyurl').zclip({
-              path:appurl+'/static/js/zclip.swf',
+              path:appurl+'/zclip.swf',
               copy:$('input.main-input').val(),
               afterCopy:function(){
                 $('.ajax').hide().html('<div class="alert alert-success">'+lang.copy+'</div>').fadeIn('slow'); 
@@ -84,7 +84,7 @@
           url: action,
           data: "q="+val+"&token="+token,
           beforeSend: function() {
-            //$(".content").html("<img class='loader' src='"+appurl+"/static/loader.gif' style='margin:0 45%;border:0;' />");
+            //$(".content").html("<img class='loader' src='"+appurl+"/loader.gif' style='margin:0 45%;border:0;' />");
           },
           complete: function() {      
             //$('img.loader').fadeOut("fast",function(){$(this).remove()});
@@ -108,7 +108,7 @@
       var e = $(this);
       var id = $(this).attr("data-id");
       var action = $(this).attr("data-action");
-      var loading="<img class='loader' src='"+appurl+"/static/loader.gif' style='margin:5px 50%;border:0;' />";
+      var loading="<img class='loader' src='"+appurl+"/loader.gif' style='margin:5px 50%;border:0;' />";
       var title = e.attr("data-title");
       if(typeof($(this).attr("data-container")) == "undefined"){
         if(typeof($(this).attr("data-class"))!="undefined") {
@@ -166,7 +166,7 @@ function server(fn){
           data: "request=activities&id="+id+"&token="+token,
           beforeSend: function() {
           	li.removeClass("new_item");
-            $("#widget_activities h3 small").html("<img class='loader' src='"+appurl+"/static/loader.gif' style='margin:0 45%;border:0;' />");
+            $("#widget_activities h3 small").html("<img class='loader' src='"+appurl+"/loader.gif' style='margin:0 45%;border:0;' />");
           },
           complete: function() {      
             $("#widget_activities h3 small").text(text);
